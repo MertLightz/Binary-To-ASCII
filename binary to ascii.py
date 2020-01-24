@@ -9,6 +9,7 @@ def report_error(message):
     blank_page()
     print('-{:^50}-'.format(message))
     time.sleep(1)
+    blank_page()
     return
 
 def display_menu():
@@ -61,9 +62,7 @@ def get_menu_option():
             menu_option = int(input('Enter a number: '))
             check = True
         except:
-            blank_page()
             report_error('Invalid Data Type')
-            blank_page()
             display_menu()
             
     if menu_option == 1 or menu_option == 2 or menu_option == 3:
@@ -73,12 +72,24 @@ def get_menu_option():
         start()
 
 def ascii_to_binary(Letter, Binary):
+    blank_page()
+    print('{:^50}'.format('- ENTER PHRASE TO CONVERT TO BINARY -'))
+    time.sleep(0.1)
+    print()
+    time.sleep(0.1)
     phrase = input_phrase()
-
+    print()
+    time.sleep(0.1)
     count = 0
-    for character in phrase:
-        if character in Letter:
-            print(Binary[count], end = ' ')
-        count += 1
-            
+    converted = ''
+    
+    for x in range(0, len(phrase)):
+        for i in range(0, len(Letter) - 1):
+            if phrase[x] == Letter[i]:
+                converted += Binary[i] + ' '
+
+    print('-{:^50}-'.format(converted))
+    print()
+    print('{:^50}'.format('- PRESS ENTER TO CONTINUE -'))
+    input()
 start()
