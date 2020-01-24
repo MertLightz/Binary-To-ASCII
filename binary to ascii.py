@@ -6,6 +6,7 @@ def blank_page():
     return
 
 def report_error(message):
+    blank_page()
     print('-{:^50}-'.format(message))
     time.sleep(1)
     return
@@ -19,7 +20,7 @@ def display_menu():
 
 def invalid_choice():
     blank_page()
-    report_error('invalid choice')
+    report_error('Invalid Choice')
     time.sleep(1)
     blank_page()
     return
@@ -40,3 +41,44 @@ def start():
             program_end = True
         else:
             invalid_choice()
+
+def input_phrase():
+    check = False
+    while check == False:
+        phrase = input('ASCII: ')
+
+        if phrase == '':
+            report_error('Phrase cannot be blank')
+        else:
+            check = True
+            return phrase
+
+def get_menu_option():
+    print()
+    check = False
+    while check == False:
+        try:
+            menu_option = int(input('Enter a number: '))
+            check = True
+        except:
+            blank_page()
+            report_error('Invalid Data Type')
+            blank_page()
+            display_menu()
+            
+    if menu_option == 1 or menu_option == 2 or menu_option == 3:
+        return menu_option
+    else:
+        report_error('Invalid Option')
+        start()
+
+def ascii_to_binary(Letter, Binary):
+    phrase = input_phrase()
+
+    count = 0
+    for character in phrase:
+        if character in Letter:
+            print(Binary[count], end = ' ')
+        count += 1
+            
+start()
