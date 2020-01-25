@@ -39,7 +39,18 @@ def start():
         else:
             report_error('Invalid Option')
 
-def input_phrase():
+def binary_input():
+    check = False
+    while check == False:
+        binary = input('Binary: ')
+
+        if binary == '':
+            report_error('Binary Cannot Be Blank')
+        else:
+            check = True
+            return binary
+
+def phrase_input():
     check = False
     while check == False:
         phrase = input('ASCII: ')
@@ -74,7 +85,7 @@ def ascii_to_binary(Letter, Binary):
     time.sleep(0.1)
     print()
     time.sleep(0.1)
-    phrase = input_phrase()
+    phrase = phrase_input()
     print()
     time.sleep(0.1)
     count = 0
@@ -84,10 +95,25 @@ def ascii_to_binary(Letter, Binary):
         for i in range(0, len(Letter)):
             if phrase[x] == Letter[i]:
                 converted += Binary[i] + ' '
-            
+                
     print('- {:^50}-'.format(converted))
     print()
     print('{:^50}'.format('- PRESS ENTER TO CONTINUE -'))
     input()
+
+def binary_to_ascii(Letter, Binary):
+    blank_page()
+    print('{:^50}'.format('- ENTER BINARY TO CONVERT TO ASCII -'))
+    time.sleep(0.1)
+    print('{:^50}'.format('- INCLUDE SPACES BETWEEN EACH 8BIT -'))
+    time.sleep(0.1)
+    print()
+    time.sleep(0.1)
+    binary = binary_input()
+    print()
+    time.sleep(0.1)
+    count = 0
+    converted = ''
+
     
 start()
