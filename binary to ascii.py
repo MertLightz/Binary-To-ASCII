@@ -81,12 +81,13 @@ def ascii_to_binary(Letter, Binary):
     converted = ''
     
     for x in range(0, len(phrase)):
-        for i in range(0, len(Letter) - 1):
+        for i in range(0, len(Letter)):
             if phrase[x] == Letter[i]:
                 converted += Binary[i] + ' '
-
-    print('-{:^50}-'.format(converted))
+            
+    print('- {:^50}-'.format(converted))
     print()
     print('{:^50}'.format('- PRESS ENTER TO CONTINUE -'))
     input()
+    
 start()
