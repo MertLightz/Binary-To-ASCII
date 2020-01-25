@@ -15,15 +15,11 @@ def report_error(message):
 def display_menu():
     blank_page()
     print('{:^50}'.format('1 - ASCII to Binary'))
+    time.sleep(0.1)
     print('{:^50}'.format('2 - Binary to ASCII'))
+    time.sleep(0.1)
     print('{:^50}'.format('3 - Quit           '))
-    return
-
-def invalid_choice():
-    blank_page()
-    report_error('Invalid Choice')
-    time.sleep(1)
-    blank_page()
+    time.sleep(0.1)
     return
 
 def start():
@@ -41,7 +37,7 @@ def start():
         elif menu_option == 3:
             program_end = True
         else:
-            invalid_choice()
+            report_error('Invalid Option')
 
 def input_phrase():
     check = False
@@ -49,13 +45,14 @@ def input_phrase():
         phrase = input('ASCII: ')
 
         if phrase == '':
-            report_error('Phrase cannot be blank')
+            report_error('Phrase Cannot Be Blank')
         else:
             check = True
             return phrase
 
 def get_menu_option():
     print()
+    time.sleep(0.1)
     check = False
     while check == False:
         try:
