@@ -42,6 +42,13 @@ def start():
 def binary_input():
     check = False
     while check == False:
+        blank_page()
+        print('{:^50}'.format('- ENTER BINARY TO CONVERT TO ASCII -'))
+        time.sleep(0.1)
+        print('{:^50}'.format('- INCLUDE SPACES BETWEEN EACH 8BIT -'))
+        time.sleep(0.1)
+        print()
+        time.sleep(0.1)
         binary = input('Binary: ')
 
         if binary == '':
@@ -53,6 +60,13 @@ def binary_input():
 def phrase_input():
     check = False
     while check == False:
+        blank_page()
+        print('{:^50}'.format('- ENTER PHRASE TO CONVERT TO BINARY -'))
+        time.sleep(0.1)
+        print('{:^50}'.format('- MUST BE UPPER CASE -'))
+        time.sleep(0.1)
+        print()
+        time.sleep(0.1)
         phrase = input('ASCII: ')
 
         if phrase == '':
@@ -79,12 +93,18 @@ def get_menu_option():
         report_error('Invalid Option')
         start()
 
+def output_converted(converted):        
+    if converted == '':
+        report_error('Invalid Input')
+        return
+    else:
+        print('- {:^50}-'.format(converted))
+        print()
+        print('{:^50}'.format('- PRESS ENTER TO CONTINUE -'))
+        input()
+        return
+
 def ascii_to_binary(Letter, Binary):
-    blank_page()
-    print('{:^50}'.format('- ENTER PHRASE TO CONVERT TO BINARY -'))
-    time.sleep(0.1)
-    print()
-    time.sleep(0.1)
     phrase = phrase_input()
     print()
     time.sleep(0.1)
@@ -95,25 +115,22 @@ def ascii_to_binary(Letter, Binary):
         for i in range(0, len(Letter)):
             if phrase[x] == Letter[i]:
                 converted += Binary[i] + ' '
-                
-    print('- {:^50}-'.format(converted))
-    print()
-    print('{:^50}'.format('- PRESS ENTER TO CONTINUE -'))
-    input()
+
+    output_converted(converted)
 
 def binary_to_ascii(Letter, Binary):
-    blank_page()
-    print('{:^50}'.format('- ENTER BINARY TO CONVERT TO ASCII -'))
-    time.sleep(0.1)
-    print('{:^50}'.format('- INCLUDE SPACES BETWEEN EACH 8BIT -'))
-    time.sleep(0.1)
-    print()
-    time.sleep(0.1)
-    binary = binary_input()
+    input_binary = binary_input()
     print()
     time.sleep(0.1)
     count = 0
     converted = ''
+    edited_binary = input_binary.split(' ')
 
+    for x in range(0, len(edited_binary)):
+        for i in range(0, len(Binary)):
+            if edited_binary[x] == Binary[i]:
+                converted += Letter[i]
+
+    output_converted(converted)
     
 start()
