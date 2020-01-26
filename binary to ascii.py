@@ -14,11 +14,11 @@ def report_error(message):
 
 def display_menu():
     blank_page()
-    print('{:^50}'.format('1 - ASCII to Binary'))
+    print('{:^50}'.format('1 - ASCII TO BINARY'))
     time.sleep(0.1)
-    print('{:^50}'.format('2 - Binary to ASCII'))
+    print('{:^50}'.format('2 - BINARY TO ASCII'))
     time.sleep(0.1)
-    print('{:^50}'.format('3 - Quit           '))
+    print('{:^50}'.format('3 - QUIT           '))
     time.sleep(0.1)
     return
 
@@ -40,7 +40,7 @@ def start():
         elif menu_option == 3:
             program_end = True
         else:
-            report_error('Invalid Option')
+            report_error('INVALID OPTION')
 
 def binary_input():
     check = False
@@ -52,10 +52,10 @@ def binary_input():
         time.sleep(0.1)
         print()
         time.sleep(0.1)
-        binary = input('Binary: ')
+        binary = input('BINARY: ')
 
         if binary == '':
-            report_error('Binary Cannot Be Blank')
+            report_error('BINARY CANNOT BE BLANK')
         else:
             check = True
             return binary
@@ -71,7 +71,7 @@ def phrase_input():
         phrase = input('ASCII: ')
 
         if phrase == '':
-            report_error('Phrase Cannot Be Blank')
+            report_error('PHRASE CANNOT BE BLANK')
         else:
             check = True
             return phrase
@@ -82,21 +82,21 @@ def get_menu_option():
     check = False
     while check == False:
         try:
-            menu_option = int(input('Enter a number: '))
+            menu_option = int(input('ENTER: '))
             check = True
         except:
-            report_error('Invalid Data Type')
+            report_error('INVALID DATA TYPE')
             display_menu()
             
     if menu_option == 1 or menu_option == 2 or menu_option == 3:
         return menu_option
     else:
-        report_error('Invalid Option')
+        report_error('INVALID OPTION')
         start()
 
 def output_converted(converted):        
     if converted == '':
-        report_error('Invalid Input')
+        report_error('INVALID INPUT')
         return
     else:
         print('- {:^50}-'.format(converted))
@@ -145,5 +145,5 @@ def binary_to_ascii(space, uppercase, upper_binary, lowercase, lower_binary):
     output_converted(converted)
 
 blank_page()
-report_error('Welcome')
+report_error('WELCOME')
 start()
