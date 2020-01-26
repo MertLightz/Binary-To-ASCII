@@ -66,8 +66,6 @@ def phrase_input():
         blank_page()
         print('{:^50}'.format('- ENTER PHRASE TO CONVERT TO BINARY -'))
         time.sleep(0.1)
-        print('{:^50}'.format('- MUST BE UPPER CASE -'))
-        time.sleep(0.1)
         print()
         time.sleep(0.1)
         phrase = input('ASCII: ')
