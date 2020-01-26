@@ -132,5 +132,7 @@ def binary_to_ascii(Letter, Binary):
                 converted += Letter[i]
 
     output_converted(converted)
-    
+
+blank_page()
+report_error('Welcome')
 start()
