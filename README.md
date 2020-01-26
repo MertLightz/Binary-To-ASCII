@@ -1,5 +1,4 @@
-# Binary-To-ASCII
-Binary To ASCII // ASCII to Binary
+# Binary To ASCII // ASCII to Binary
 
 -> Based on Computer Science A-Level Morse Code task code
 -> Perfectly working translation from ASCII to Binary and Binary to ASCII
