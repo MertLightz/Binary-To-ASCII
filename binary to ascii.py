@@ -113,7 +113,6 @@ def ascii_to_binary(space, uppercase, upper_binary, lowercase, lower_binary):
     time.sleep(0.1)
     count = 0
     converted = ''
-    print(phrase)
     
     for x in range(0, len(phrase)):
         for i in range(0, len(uppercase)):
@@ -123,6 +122,7 @@ def ascii_to_binary(space, uppercase, upper_binary, lowercase, lower_binary):
                 converted += lower_binary[i] + ' '
             elif phrase[x] == space[0]:
                 converted += space[1] + ' '
+                break
 
     output_converted(converted)
 
@@ -141,7 +141,8 @@ def binary_to_ascii(space, uppercase, upper_binary, lowercase, lower_binary):
             elif edited_binary[x] == lower_binary[i]:
                 converted += lowercase[i]
             elif edited_binary[x] == space[1]:
-                converted += space[1]
+                converted += space[0]
+                break
 
     output_converted(converted)
 
