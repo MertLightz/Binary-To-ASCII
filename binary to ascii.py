@@ -113,12 +113,14 @@ def ascii_to_binary(space, uppercase, upper_binary, lowercase, lower_binary):
     converted = ''
     
     for x in range(0, len(phrase)):
-        for i in range(0, len(uppercase)):
+        for i in range(0, len(uppercase)): 
             if phrase[x] == uppercase[i]:
                 converted += upper_binary[i] + ' '
-            elif phrase[x] == lowercase[i]:
+                
+            elif phrase[x] == lowercase[i]: 
                 converted += lower_binary[i] + ' '
-            elif phrase[x] == space[0]:
+                
+            elif phrase[x] == space[0]: 
                 converted += space[1] + ' '
                 break
 
@@ -136,8 +138,10 @@ def binary_to_ascii(space, uppercase, upper_binary, lowercase, lower_binary):
         for i in range(0, len(upper_binary)):
             if edited_binary[x] == upper_binary[i]:
                 converted += uppercase[i]
+                
             elif edited_binary[x] == lower_binary[i]:
                 converted += lowercase[i]
+                
             elif edited_binary[x] == space[1]:
                 converted += space[0]
                 break
